@@ -1,0 +1,52 @@
+
+<html>
+<head>
+    <title>Jiggle Into JavaScript</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+<style>
+
+
+#box {
+    background-color: orange;
+    height: 150px;
+    width: 150px;
+    margin: 25px;
+    opacity: 1;
+    transition: 0.3s;
+}
+#box:hover {opacity: 0.4}
+
+.button3 {
+    font-family: fantasy;
+    font-size: 24px;
+    color: blue;
+    opacity: 1;
+    transition: 0.3s;
+}
+.button3:hover {opacity: 0.4}
+
+</style>
+</head>
+<body>
+<center>
+
+    <p class="button3">Press the buttons to change the box!</p>
+
+    <div id="box" style="height:150px; width:150px; background-color:orange; margin:25px"></div>
+
+    <button id="button1">Grow</button>
+    <button id="button2">Blue</button>
+    <button id="button5">Shrink</button>
+    <p class="button3">Hover over the box to watch it fade!</p>
+    <button id="button4">Reset</button>
+
+
+    <button onclick="getElementById('demo').innerHTML=Date()">Look At The Time!</button>
+
+<p id="demo"></p>
+</center>
+    <script type="text/javascript" src="javascript.js"></script>
+
+</body>
+</html>
