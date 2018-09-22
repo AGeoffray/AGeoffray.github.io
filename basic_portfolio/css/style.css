@@ -1,0 +1,193 @@
+/*about*/
+
+
+
+* {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    color: #4aaaa5;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 12px;
+    border-bottom: #cccccc;
+    border-bottom-style: groove;
+    border-bottom-width: 6px;
+    font-size: 40px;
+    text-align: right;
+    width: 100%;
+    float: left;
+}
+
+a {
+    color:#4aaaa5;
+}
+
+
+.navigation {
+    float: right;
+    width: 100%;
+    background-color: #4aaaa5;
+    padding: 20px;
+    margin: 1px;
+    font-size: 20px;
+    text-align: right;
+}
+.button {
+    float: right;
+    width: 200px;
+    border-style: ridge;
+    margin: 3px;
+}
+.button:hover {
+    background-color:#4aaaa5;
+    font-size: 20px;
+    color: grey;
+}
+
+
+
+
+
+
+
+
+#paragraph {
+    float: left;
+    background-color:#ffffff;
+    overflow: auto;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px;
+    border-style: inset;
+    border-width: 2px;
+    width: 100%;
+    border-color: #dddddd;
+}
+
+#Image {
+    word-wrap: normal;
+    float: left;
+    height: 400px;
+    overflow: auto;
+    padding: 20px;
+}
+
+p {
+    font-weight: 300;
+    line-height: 50px;
+    font-size: 18px;
+    color: #777777;
+}
+
+#feet {
+    background-color: #666666;
+    color:#4aaaa5;
+}
+
+
+/*contact*/
+
+
+/* This is for Alyssa's contact info */
+
+#MyInfo {
+    float: right;
+    width: 40%;
+    font-size: 30px;   
+    border-color:#dddddd;
+    border-style: ridge;
+    border-width: 5px;
+}
+
+#contactphoto {
+    width: 50%;
+    padding: 3px;
+    border-color: #dddddd;
+}
+
+/* This is for the contact box */
+
+
+
+* {box-sizing: border-box;
+}
+
+#contactbody {font-family: Arial, Helvetica, sans-serif;}
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    color: #777777;
+}
+
+input[type=submit] {
+    background-color: #4aaaa5;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color:#1d7571;
+    color: #777777;
+}
+
+.container {
+    border-radius: 5px;
+    border-color: #4aaaa5;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+h3 {
+    align: center;
+}
+
+#Contactme {
+    float: left;
+    text-align: left;
+    width: 60%;
+   
+}
+
+
+/* portfolio */
+
+
+
+
+
+.portpic {
+    float: left;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+    padding: 20px;
+}
+
+.item {
+    float: left;
+    width: 20%;
+    height: 350px;
+    text-align: center;
+    line-height: 90%;
+}
+
+.item:hover {
+    opacity: 0.3;
+    background-color: #4aaaa5;
+}
