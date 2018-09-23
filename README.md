@@ -1,15 +1,27 @@
 # AGeoffray.github.io
 
 
-Homepage is AlyssaGeoffray_About
+Homepage (or, the "about" section) is AGeoffray.github.io/basic_portfolio/index.html
 
-"About" link should lead to ---> AlyssaGeoffray_About
-"Portfolio" link should lead to ---> AlyssaGeoffray_Portfolio
-"Contact" link should lead to ---> AlyssaGeoffray_Contact
+"About" link should lead to ---> basic_portfolio/index.html
+"Portfolio" link should lead to ---> basic_portfolio/portfolio.html
+"Contact" link should lead to ---> basic_portfolio/contact.html
+
+These three pages are linked to "styles.css" 
+[https://ageoffray.github.io/basic_portfolio/assets/css/style.css]
 
 
-under "Portfolio"
-  -Interactive Buttons should lead to ---> "Interactive Box" link
+Under the "Portfolio" tab:
+  -Interactive Buttons picture should lead to ---> "Interactive Box" link 
+  [ageoffray.github.io/basic_portfolio/assets/portfolio_links/interactivebox.html]
+      InteractiveBox.html is linked to InteractiveBox.js
   -PC Game should lead to ---> scratch.mit.edu/projects/245428552/
-  -Style Sheet should lead to ---> floats exercise
-  -All About Doggos should lead to ---> "index.html" link, page about dogs
+  -Style Sheet should lead to ---> floats exercise 
+  [ageoffray.github.io/basic_portfolio/assets/portfolio_links/floats.html]
+      Floats.html is linked to Floats.css
+  -All About Doggos should lead to ---> page about dogs
+  {ageoffray.github.io/basic_portfolio/assets/portfolio_links/AllAboutDogs.html]
+  
+  
+  
+
