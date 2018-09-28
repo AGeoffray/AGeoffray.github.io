@@ -1,42 +1,47 @@
 /*about*/
 
 
-
 * {
     box-sizing: border-box;
     background-color: #ffffff;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;   
 }
 
 h1 {
     color: #4aaaa5;
     background-color: #ffffff;
-    padding: 20px;
-    margin: 12px;
+    padding: 10px;
     border-bottom: #cccccc;
     border-bottom-style: groove;
     border-bottom-width: 6px;
-    font-size: 40px;
-    text-align: right;
     width: 100%;
+    font-size: 35px;
+    text-align: left;
+    margin-left:20px;
+    margin-right: 20px;
     float: left;
+    overflow: auto;
 }
 
 a {
     color:#4aaaa5;
+    margin-right:20px;
+    margin-left:20px;
 }
-
 
 .navigation {
     float: right;
     width: 100%;
     background-color: #4aaaa5;
-    padding: 20px;
-    margin: 1px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
     font-size: 20px;
     text-align: right;
+    overflow: auto;
 }
+
 .button {
     float: right;
     width: 200px;
@@ -49,23 +54,17 @@ a {
     color: grey;
 }
 
-
-
-
-
-
-
-
 #paragraph {
     float: left;
     background-color:#ffffff;
     overflow: auto;
     font-size: 14px;
-    padding: 10px;
-    margin: 10px;
+    padding: 7px;
+    margin-left: 18%;
+    margin-right: 18%;
     border-style: inset;
-    border-width: 2px;
-    width: 100%;
+    border-width: 1px;
+    width: 960px;
     border-color: #dddddd;
 }
 
@@ -90,8 +89,9 @@ p {
 }
 
 
-/*contact*/
 
+
+/*contact*/
 
 /* This is for Alyssa's contact info */
 
@@ -112,13 +112,10 @@ p {
 
 /* This is for the contact box */
 
-
-
 * {box-sizing: border-box;
 }
 
 #contactbody {font-family: Arial, Helvetica, sans-serif;}
-
 
 input[type=text], select, textarea {
     width: 100%;
@@ -165,11 +162,9 @@ h3 {
 }
 
 
+
+
 /* portfolio */
-
-
-
-
 
 .portpic {
     float: left;
