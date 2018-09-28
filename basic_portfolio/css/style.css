@@ -5,48 +5,56 @@
     box-sizing: border-box;
     background-color: #ffffff;
     text-align: center;
-    font-family: 'Poppins', sans-serif;   
+    font-family: 'Poppins', sans-serif;
 }
 
-h1 {
+#Name {
     color: #4aaaa5;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 5px;
     border-bottom: #cccccc;
     border-bottom-style: groove;
     border-bottom-width: 6px;
+    border-style: double;
+    text-align: right;
     width: 100%;
-    font-size: 35px;
-    text-align: left;
-    margin-left:20px;
-    margin-right: 20px;
     float: left;
-    overflow: auto;
 }
+
+h1 {
+    margin-right: 18%;
+    text-align: right;
+}
+
+#h12 {
+    text-align: right;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
 
 a {
     color:#4aaaa5;
-    margin-right:20px;
-    margin-left:20px;
 }
+
 
 .navigation {
     float: right;
     width: 100%;
     background-color: #4aaaa5;
-    padding: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
+    padding: 20px;
+    margin: 1px;
     font-size: 20px;
     text-align: right;
-    overflow: auto;
 }
-
 .button {
     float: right;
     width: 200px;
     border-style: ridge;
     margin: 3px;
+}
+#buttcontact {
+    margin-right: 17.5%
 }
 .button:hover {
     background-color:#4aaaa5;
@@ -59,11 +67,11 @@ a {
     background-color:#ffffff;
     overflow: auto;
     font-size: 14px;
-    padding: 7px;
-    margin-left: 18%;
-    margin-right: 18%;
+    padding: 10px;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
     border-style: inset;
-    border-width: 1px;
+    border-width: 2px;
     width: 960px;
     border-color: #dddddd;
 }
@@ -89,33 +97,17 @@ p {
 }
 
 
-
-
 /*contact*/
 
-/* This is for Alyssa's contact info */
-
-#MyInfo {
-    float: right;
-    width: 40%;
-    font-size: 30px;   
-    border-color:#dddddd;
-    border-style: ridge;
-    border-width: 5px;
-}
-
-#contactphoto {
-    width: 50%;
-    padding: 3px;
-    border-color: #dddddd;
-}
-
 /* This is for the contact box */
+
+
 
 * {box-sizing: border-box;
 }
 
 #contactbody {font-family: Arial, Helvetica, sans-serif;}
+
 
 input[type=text], select, textarea {
     width: 100%;
@@ -146,19 +138,65 @@ input[type=submit]:hover {
 .container {
     border-radius: 5px;
     border-color: #4aaaa5;
-    background-color: #f2f2f2;
+    border-style: inset;
+    background-color: #ffffff;
     padding: 20px;
 }
 
 h3 {
     align: center;
+    color: #4aaaa5;
 }
 
 #Contactme {
     float: left;
     text-align: left;
-    width: 60%;
-   
+    width: 960px;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+}
+
+/*gap between contact form and Alyssa's info*/
+
+#break {
+    float: left;
+    width: 960px;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+    overflow: auto;
+    border-style: solid;
+    border-color: #4aaaa5;
+    border-width: 5px;
+    padding: 20px;
+}
+
+#divider {
+    width: 900px;
+}
+
+
+/* This is for Alyssa's contact info */
+
+#MyInfo {
+    float: left;
+    width: 960px;
+    margin-right: 17.5%;
+    margin-left: 17.5%;
+    font-size: 30px;   
+    border-color:#dddddd;
+    border-style: solid;
+    border-right-width: 180px;
+    border-left-width: 180px;
+    border-bottom-width: 40px;
+    border-top-width: 40px;
+    border-bottom-color: #4aaaa5;
+    border-top-color: #4aaaa5;
+}
+
+#contactphoto {
+    width: 50%;
+    padding: 3px;
+    border-color: #dddddd;
 }
 
 
@@ -166,18 +204,61 @@ h3 {
 
 /* portfolio */
 
+
+#none {
+    float: left;
+    background-color:#ffffff;
+    overflow: auto;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px;
+    border-style: inset;
+    border-width: 2px;
+    width: 100%;
+    border-color: #dddddd;
+}
+
+#para {
+    float: left;
+    width: 960px;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+    margin-top: 20px;
+    border-style: ridge;
+    border-width: 5px;
+    border-color: #dddddd;
+    background-color: #ffffff;
+}
+
 .portpic {
     float: left;
     height: 300px;
     width: 300px;
     overflow: auto;
     padding: 20px;
+    border-style: solid;
+    border-top-right-radius: 23%;
+}
+
+.wording {
+    float: left;
+    width: 20%;
+    text-align: center;
+    height: 20px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    line-height: 80%;
+    font-size: 14px;
+    border-left-style: ridge;
+    border-color: #4aaaa5;
 }
 
 .item {
     float: left;
+    margin-left: 16%;
     width: 20%;
     height: 350px;
+    padding-top: 20px;
     text-align: center;
     line-height: 90%;
 }
@@ -185,4 +266,87 @@ h3 {
 .item:hover {
     opacity: 0.3;
     background-color: #4aaaa5;
+}
+
+
+
+
+
+/*
+  These rules take effect when the browser's width
+  is either 768px or less.
+*/
+@media screen and (max-width: 768px) {
+    /* The body's bg color will be #333 */
+    .Name {
+        color: #4aaaa5;
+        background-color: #ffffff;
+        padding: 5px;
+        border-bottom: #cccccc;
+        border-bottom-style: groove;
+        border-bottom-width: 6px;
+        border-style: double;
+        text-align: right;
+        width: 100%;
+        float: right;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: right;
+        margin-right: 5px;
+    }
+
+    .navigation {
+        float: right;
+        width: 100%;
+        background-color: #4aaaa5;
+        padding: 2px;
+        margin: 1px;
+        text-align: right;
+    }
+    .button {
+        float: right;
+        width: 20%;
+        font-size: 12px;
+        border-style: ridge;
+        margin: 1px;
+    }
+    #buttcontact {
+        margin-right: 5px;
+    }
+    .button:hover {
+        background-color:#4aaaa5;
+        opacity: 0.3;
+        color: grey;
+    }
+
+    #paragraph {
+        float: right;
+        width: 100%;
+        font-size: 12px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #Image {
+        width: 250px;
+        height: 300px;
+    }
+
+    #feet {
+        float: right;
+        width: 100%;
+    }
+
+    #para {
+        width: 100%;
+    }
+
+    .item {
+        width: 15%;
+    }
+    .portpic {
+        width: 15%;
+    }
 }
