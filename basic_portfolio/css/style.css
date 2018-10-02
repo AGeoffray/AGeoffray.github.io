@@ -60,7 +60,7 @@ a {
     border-color: rgb(54, 50, 50);
 }
 #buttcontact {
-    margin-right: 100px;
+    margin-right:8%;
 }
 .button:hover {
     background-color:#4aaaa5;
@@ -187,6 +187,14 @@ h3 {
    
 }
 
+@media screen and (max-width: 768px) {
+    #Contactme {
+        float: left;
+        width: 100%;
+        margin: 0;
+    }
+}
+
 /*divider between contact form and Alyssa's info*/
 
 #break {
@@ -201,8 +209,20 @@ h3 {
     padding: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    #break {
+        width: 100%;
+        margin: 0;
+    }
+}
+
 #divider {
     width: 900px;
+}
+@media screen and (max-width: 768px) {
+    #divider {
+        width: 500px;
+    }
 }
 
 /* This is for Alyssa's contact information */
@@ -222,11 +242,24 @@ h3 {
     border-bottom-color: #4aaaa5;
     border-top-color: #4aaaa5;
 }
+@media screen and (max-width: 768px) {
+    #MyInfo {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+        border-width: 2px;
+    }
+}
 
 #contactphoto {
     width: 50%;
     padding: 3px;
     border-color: #dddddd;
+}
+@media screen and (max-width: 768px) {
+    #contactphoto {
+        width: 300px;
+    }
 }
 
 
@@ -243,18 +276,6 @@ h3 {
 
 
 
-#none {
-    float: left;
-    background-color:#ffffff;
-    overflow: auto;
-    font-size: 14px;
-    padding: 10px;
-    margin: 10px;
-    border-style: inset;
-    border-width: 2px;
-    width: 100%;
-    border-color: #dddddd;
-}
 
 #para {
     float: left;
@@ -266,8 +287,15 @@ h3 {
     border-width: 5px;
     border-color: #dddddd;
     background-color: #ffffff;
+    
 }
 
+@media screen and (max-width: 768px) {
+    #para {
+    float: left; 
+    width: 100%;
+    margin: 0; }
+}
 
 .portpic {
     float: left;
@@ -278,10 +306,16 @@ h3 {
     border-style: solid;
     border-top-right-radius: 23%;
 }
+@media screen and (max-width: 768px) {
+    .portpic {
+    float: left;
+    height: 100px;
+    width: 100px; }
+}
 
 .wording {
     float: left;
-    width: 20%;
+    width: 200px;
     text-align: center;
     height: 20px;
     padding-bottom: 4px;
@@ -291,15 +325,24 @@ h3 {
     border-left-style: ridge;
     border-color: #4aaaa5;
 }
+@media screen and (max-width: 768px) {
+    .wording {
+        width: 100px;}
+}
 
 .item {
     float: left;
-    margin-left: 16%;
-    width: 20%;
-    height: 350px;
+    margin-left: 13%;
+    width: 30%;
+    height: 40%;
     padding-top: 20px;
     text-align: center;
     line-height: 90%;
+}
+@media screen and (max-width: 768px) {
+    .item {float: left;
+    width: 130px;
+    height: 130px;}
 }
 
 .item:hover {
@@ -313,16 +356,39 @@ h3 {
 
 
 
+
 /* THIS TAKES EFFECT WHEN THE BROWSER'S WIDTH IS < 768PX */
 
 
 
 
-
+  {
+        font-size: 1rem;
+      }
 
 
 
 @media screen and (max-width: 768px) {
+
+  
+    
+      @include media-breakpoint-up(sm) {
+        html {
+          font-size: 1.2rem;
+        }
+      }
+    
+      @include media-breakpoint-up(md) {
+        html {
+          font-size: 1.4rem;
+        }
+      }
+    
+      @include media-breakpoint-up(lg) {
+        html {
+          font-size: 1.6rem;
+        }
+      }
 
 
     .Name {
@@ -348,8 +414,6 @@ h3 {
         width: 100%;
         background-color: #4aaaa5;
         padding: 2px;
-        margin-right: 1px;
-        margin-left: 1px;
         text-align: right;
     }
     .button {
@@ -360,7 +424,7 @@ h3 {
         margin: 1px;
     }
     #buttcontact {
-        margin-right: 5px;
+        margin-right: 5%;
     }
     .button:hover {
         background-color:#4aaaa5;
@@ -388,8 +452,12 @@ h3 {
 
     #para {
         width: 100%;
-        float: left;
+        float: right;
         overflow: scroll;
+    }
+
+    .portpic {
+        width:10%;
     }
 
     .item {
