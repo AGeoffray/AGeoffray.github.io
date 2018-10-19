@@ -21,8 +21,8 @@ $(document).ready(function () {
         event.preventDefault();  // added line to test scrolling issue
         clickSound.play();
         generateHTML();
-
         timerWrapper();
+        console.log(answerArray);
 
     });
 
