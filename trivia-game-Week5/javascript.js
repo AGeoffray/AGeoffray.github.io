@@ -1,4 +1,5 @@
 //europe trivia game
+        console.log(answerArray);
 
 $(document).ready(function () {
 
@@ -22,7 +23,6 @@ $(document).ready(function () {
         clickSound.play();
         generateHTML();
         timerWrapper();
-        console.log(answerArray);
 
     });
 
