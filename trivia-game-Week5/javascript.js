@@ -1,8 +1,8 @@
 //europe trivia game
-        console.log(answerArray);
+        
 
 $(document).ready(function () {
-
+console.log("Answers: 1.UK, 2.France, 3.Spain, 4.Ukraine, 5.Italy, 6.Sweeden, 7.Bulgaria, 8.Germany");
 
     function validateField() { 
         var docs = document.getElementById("img");
