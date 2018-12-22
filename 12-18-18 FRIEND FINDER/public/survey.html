@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <title>Friend Finder - Survey</title>
+</head>
+
+<style>
+
+    * {
+        font-family: "poiret one", cursive;
+        background: url("purple.png") fixed center no-repeat;
+        font-weight: bold;
+    }
+    
+
+
+#headr {
+    color: rgb(73, 11, 73);
+    font-size: 50px;
+}
+#miniheadr {
+    color: rgb(253, 243, 253);
+    font-size: 30px;
+}
+
+#instructions{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    width: 600px;
+    padding: 2px;
+    margin: 5px;
+}
+
+#options {
+    color:black;
+    background-color: rgb(105, 30, 105);
+    border: 4px white ridge;
+    padding: 10px;
+    margin: 10px;
+    width: 350px;
+}
+
+#introOptions {
+    border-top: 5px white ridge;
+    border-bottom: 5px white ridge;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    width: 650px;
+    height: 300px;
+    margin: 40px;
+}
+
+#fullForm {
+    padding: 5px;
+}
+
+    .question {
+        width: 200px;
+        padding-top: 3px;
+    }
+
+    .divQ {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .Qs {
+        width: 350px;
+        height: 190px;
+        border: 3px purple ridge;
+    }
+
+    .Qsinput {
+        height: 50px;
+        width: 300px;
+    }
+
+    #inputQs {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+</style>
+
+
+<body>
+
+    <!-- Introduction -->
+
+    <center>
+        <div id="intro">
+            <h1 id="headr">Let's Get To Know You!</h1>
+            <h2 id="miniheadr">Tell us about yourself, and let us find your perfect match!</h2>
+        </div>
+    </center>
+    <!-- <br><br><br><br><br><br><br> -->
+
+    <!-- Area for user name and photo input -->
+    <center>
+        <form action="/friends-new" method="GET" id="fullForm">
+            <!-- User Name -->
+            <div id="inputQs">
+            <div id="nameForm" class="Qsinput">
+                <div class="divQ">What should we call you?</div><br>
+                    <input type="text" name="newFriend" class="question">
+                </div>
+
+                <br><br>
+
+                <div id="photoForm" class="Qsinput">
+                    <div class="divQ">Please choose a photo URL to use as your profile image.</div><br>
+                    <input type="text" name="photoURL" class="question" value="https://">
+                </div>
+            </div>
+
+
+    </center>
+
+    <!-- Instructions for the following survey questions -->
+    <center>
+        <br><div id="introOptions">
+        <div id="instructions">
+            Please answer the following questions honestly. Select a number that reflects how strongly you
+            identify with each statement.<br>
+            Rank its truthfulness, using the scale below.
+        </div>
+        <br>
+        <div id="options">
+            <div id="1">1 - Strongly Disagree</div>
+            <div id="2">2 - Disagree</div>
+            <div id="3">3 - Neutral</div>
+            <div id="4">4 - Agree</div>
+            <div id="5">5 - Strongly Agree</div>
+        </div>
+    </div>
+    </center>
+
+
+
+    <!-- Space before survey questions -->
+
+    <!-- <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br> -->
+    <center>
+        <!-- First Q -->
+        <div id="form01" class="Qs">
+            <div class="divQ">I am an animal person.</div><br>
+            <input type="number" min="1" max="5" name="qone" class="question">
+        </div>
+
+        <br><br>
+        <!-- Second Q -->
+        <div id="form02" class="Qs">
+            <div class="divQ">Money is very important to me.</div><br>
+            <input type="number" min="1" max="5" name="qtwo" class="question">
+        </div>
+
+        <br><br>
+        <!-- Third Q -->
+        <div id="form03" class="Qs">
+            <div class="divQ">I want children in the future.</div><br>
+            <input type="number" min="1" max="5" name="qthree" class="question">
+        </div>
+
+        <br><br>
+        <!-- Fourth Q -->
+        <div id="form04" class="Qs">
+            <div class="divQ">It is important that my partner and I agree on politics.</div><br>
+            <input type="number" min="1" max="5" name="qfour" class="question">
+        </div>
+
+        <br><br>
+        <!-- Fifth Q -->
+        <div id="form05" class="Qs">
+            <div class="divQ">I am a smoker.</div><br>
+            <input type="number" min="1" max="5" name="qfive" class="question">
+        </div>
+
+        <br><br>
+        <!-- Sixth Q -->
+        <div id="form06" class="Qs">
+            <div class="divQ">I prefer a cozy night in over a crazy night out.</div><br>
+            <input type="number" min="1" max="5" name="qsix" class="question">
+        </div>
+
+        <br><br>
+        <!-- Seventh Q -->
+        <div id="form07" class="Qs">
+            <div class="divQ">Family is important to me.</div><br>
+            <input type="number" min="1" max="5" name="qseven" class="question">
+        </div>
+
+        <br><br>
+        <!-- Eigth Q -->
+        <div id="form08" class="Qs">
+            <div class="divQ">It is important that my partner has a great sense of humor.</div><br>
+            <input type="number" min="1" max="5" name="qeight" class="question">
+        </div>
+
+        <br><br>
+        <!-- Ninth Q -->
+        <div id="form09" class="Qs">
+            <div class="divQ">Maintaining a healthy diet and lifestyle are a strong priority.</div><br>
+            <input type="number" min="1" max="5" name="qnine" class="question">
+        </div>
+
+        <br><br>
+        <!-- Tenth Q -->
+        <div id="form10" class="Qs">
+            <div class="divQ">I am religious.</div><br>
+            <input type="number" min="1" max="5" name="qten" class="question">
+        </div>
+        <br><br>
+        <!-- Submit button to store answers in sql database with other users -->
+        <input type="submit" value="OK">
+
+        </form>
+    </center>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+
+
+</script>
+
+</html>

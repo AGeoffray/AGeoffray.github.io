@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        background: url("purple.png") center fixed no-repeat;
+        font-family: "poiret one", cursive;
+    }
+
+    h1 {
+        text-shadow: 2px 2px rgb(253, 223, 253);
+    }
+
+    h4 {
+        text-shadow: 1px 1px rgb(253, 223, 253);
+    }
+
+    #heart {
+        padding-top: -30px;
+    }
+
+
+
+#homeBtn {
+    color: rgb(59, 11, 45);
+    font-weight: bold;
+    font-size: 40px;
+    font-family: 'Tangerine', cursive;
+}
+
+#homeBtn:hover {
+    color: rgb(203, 147, 229);
+    text-shadow: 2px 2px rgb(126, 36, 99);
+    font-size: 50px;
+}
+
+    #content {
+ width: 80%;
+ margin-left: 15%;
+    }
+
+    .entireFriend {
+        border: white ridge 3px;
+        width: 250px;
+        height: 250px;
+        text-align: center;
+        float: left;
+    }
+
+    .friend {
+        font-size: 40px;
+        padding: 12px;
+        color: purple;
+    }
+
+    .photoURL {
+        height: 150px;
+        border: 1px purple ridge;
+        padding: 2px;
+        margin: 10px;
+    }
+</style>
+
+<body>
+    <header><a href="/home.html" id="homeBtn">Home</a></header>
+
+    <center>
+        <h4>Who's On</h4>
+        <h1>Friend Finder</h1>
+        <img src="purpleheart.png" width="200px" id="heart">
+    </center>
+
+    
+
+    <center>
+
+        <div id="personal"></div>
+    </center>
+
+    <div id="content"></div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+<script>
+
+    $.ajax({
+        url: "/list",
+        method: "GET"
+    }).then(function (data) {
+
+        var count = 0;
+        var $diiv;
+        var $d;
+        var img;
+
+        for (var i = 0; i < data.length; i++) {
+
+
+            var $d = $("<div>");
+            var img = $("<img>");
+            var $diiv = $("<div>");
+
+            img.attr("class", "photoURL");
+            img.attr("src", data[i].photo);
+
+            $d.attr("class", "friend");
+            $d.text(data[i].name);
+
+            $diiv.attr("class", "entireFriend");
+            $diiv.append(img);
+            $diiv.append($d);
+
+
+            $("#content").append($diiv);
+        }
+
+    })
+
+</script>
+
+
+</html>
