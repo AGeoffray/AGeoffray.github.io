@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: //password goes here
+    password: "Sql506087",
     database: "friend_finder"
 });
 
@@ -26,6 +26,11 @@ app.get("/friends", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/survey.html"));
 })
 
+app.get("/available", function (req, res) {
+    res.sendFile(path.join(__dirname, "/public/allFriends.html"));
+})
+
+
 //creating global variables to store the user's answers, so we can refer to it in other functions
 var name;
 var photo;
@@ -40,7 +45,7 @@ var score08;
 var score09;
 var score10;
 
-//when the user submits a survey and updates their username/photo, we use /friends-new to add them to the mysql table 'friends'
+//after the user creates a profile/fills out the survey, they are directed to this route which adds them to the mysql table 'friends'
 app.get("/friends-new", function (req, res) {
     name = req.query.newFriend;
     photo = req.query.photoURL;
@@ -54,11 +59,12 @@ app.get("/friends-new", function (req, res) {
     score08 = req.query.qeight;
     score09 = req.query.qnine;
     score10 = req.query.qten;
+    //console log to make sure the user's submission is accurate, then connect to mysql to update the db
     console.log(name + " has added a photo! URL:" + photo + "\n " + name + "'s Scores: " + score01 + ', ' + score02 + ', ' + score03 + ', ' + score04 + ', ' + score05 + ', ' + score06 + ', ' + score07 + ', ' + score08 + ', ' + score09 + ', ' + score10);
     connection.query("INSERT INTO friends (name, photo, score01, score02, score03, score04, score05, score06, score07, score08, score09, score10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [name, photo, score01, score02, score03, score04, score05, score06, score07, score08, score09, score10], function (error, response, fields) {
         if (error) console.log("404");
 
-        //once the user's info has been added to mysql, we redirect them to another page
+        //once the user's info has been added to mysql, they are redirected to the menu page
         res.redirect("/directory.html");
     })
 })
@@ -70,24 +76,19 @@ app.get("/list", function (req, res) {
     })
 })
 
-app.get("/available", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/allFriends.html"));
-})
 
 
 
 
-//I'm working on a function below to compare scores with other members, but it isn't quite right yet.
-//When it's ready, I will call this function after a user submits their survey and 
-//redirect them to an HTML page displaying their best matches.
-//so far, I think I'm able to compare answers but I am not able to tell which user it is that they match with
+//Below is a function to compare each user's scores to other users' scores and find their compatibility
+//A total difference of 40 is the worst compatibility
+//A total difference of 0 is the best compatibility
 
-app.get("/myMatches", function (req, res) {
-    findMatch();
-})
 
-var totalDifference;
-var smallestDifference;
+//variable to hold each user's scores as an array
+var firstScores=[];
+var secondScores=[];
+//variables to hold the total difference as well as each question's individual difference
 var one;
 var two;
 var three;
@@ -98,70 +99,105 @@ var seven;
 var eight;
 var nine;
 var ten;
+var difference;
 
-function findMatch() {
-    connection.query("SELECT score01, score02, score03, score04, score05, score06, score07, score08, score09, score10 FROM friends", function (err, results, fields) {
-        for (var i = 0; i < [results.length - 1]; i++) {
+app.get("/match", function(req, res){
+        f = req.query.first; //first user's ID
+        s = req.query.second; //second user's ID
+connection.query("SELECT * FROM friends WHERE id=? OR id=?", [f, s], function(err, results){
+    if(err) console.log("404");
 
-            if (results[i].score01 > score01) {
-                one = results[i].score01 - score01;
-            } else {
-                one = score01 - results[i].score01;
-            } if (results[i].score02 > score02) {
-                two = results[i].score02 - score02;
-            } else {
-                two = score02 - results[i].score02;
-            } if (results[i].score01 > score01) {
-                three = results[i].score01 - score01;
-            } else {
-                three = score03 - results[i].score03;
-            } if (results[i].score04 > score04) {
-                four = results[i].score04 - score04;
-            } else {
-                four = score04 - results[i].score04;
-            } if (results[i].score05 > score05) {
-                five = results[i].score05 - score05;
-            } else {
-                five = score05 - results[i].score05;
-            } if (results[i].score06 > score06) {
-                six = results[i].score06 - score06;
-            } else {
-                six = score06 - results[i].score06;
-            } if (results[i].score07 > score07) {
-                seven = results[i].score07 - score07;
-            } else {
-                seven = score07 - results[i].score07;
-            } if (results[i].score08 > score08) {
-                eight = results[i].score08 - score08;
-            } else {
-                eight = score08 - results[i].score08;
-            } if (results[i].score09 > score09) {
-                nine = results[i].score09 - score09;
-            } else {
-                nine = score09 - results[i].score09;
-            } if (results[i].score10 > score10) {
-                ten = results[i].score10 - score10;
-            } else {
-                ten = score10 - results[i].score10;
-            }
+    firstUserName = results[0].name;
+    secondUserName = results[1].name;
 
-            //here we take the difference in each score and add them together
-            totalDifference = one + two + three + four + five + six + seven + eight + nine + ten;
+    firstUserPic = results[0].photo;
+    secondUserPic = results[1].photo;
 
-            //next we find the smallest 'totalDifference', because that is their match
-            var smallestDifference = 0;
-            for (var x = 0; x < totalDifference.length; x++) {
-                if (totalDifference[x] < smallestDifference) {
-                    smallestDifference = totalDifference[i];
-                }
-            }
-            console.log("Difference in scores, answer 1: " + one +" answer 2: " + two + " answer 3: " + three + " answer 4: " + four + " answer 5: " + five);
-            console.log("total" + totalDifference + " , smallest: " + smallestDifference);
-        }
-    })
-}
+// storing an array of the selected users' scores
+firstScores = [results[0].score01, results[0].score02, results[0].score03, results[0].score04, results[0].score05,
+results[0].score06, results[0].score07, results[0].score08, results[0].score09, results[0].score10];
+secondScores = [results[1].score01, results[1].score02, results[1].score03, results[1].score04, results[1].score05, 
+results[1].score06, results[1].score07, results[1].score08, results[1].score09, results[1].score10,];
 
-app.listen(3004, function () {
-    console.log("Ready on port 3004");
+
+    if(firstScores[0] < secondScores[0]){
+        one = secondScores[0] - firstScores[0];
+    }else{
+        one = firstScores[0] - secondScores[0];
+    }
+    if(firstScores[1] < secondScores[1]){
+        two = secondScores[1] - firstScores[1];
+    }else{
+        two = firstScores[1] - secondScores[1];
+    }
+    if(firstScores[2] < secondScores[2]){
+        three = secondScores[2] - firstScores[2];
+    }else{
+        three = firstScores[2] - secondScores[2];
+    }
+    if(firstScores[3] < secondScores[3]){
+        four = secondScores[3] - firstScores[3];
+    }else{
+        four = firstScores[3] - secondScores[3];
+    }
+    if(firstScores[4] < secondScores[4]){
+        five = secondScores[4] - firstScores[4];
+    }else{
+        five = firstScores[4] - secondScores[4];
+    }
+    if(firstScores[5] < secondScores[5]){
+        six = secondScores[5] - firstScores[5];
+    }else{
+        six = firstScores[5] - secondScores[5];
+    }
+    if(firstScores[6] < secondScores[6]){
+        seven = secondScores[6] - firstScores[6];
+    }else{
+        seven = firstScores[6] - secondScores[6];
+    }
+    if(firstScores[7] < secondScores[7]){
+        eight = secondScores[7] - firstScores[7];
+    }else{
+        eight = firstScores[7] - secondScores[7];
+    }
+    if(firstScores[8] < secondScores[8]){
+        nine = secondScores[8] - firstScores[8];
+    }else{
+        nine = firstScores[8] - secondScores[8];
+    }
+    if(firstScores[9] < secondScores[9]){
+        ten = secondScores[9] - firstScores[9];
+    }else{
+        ten = firstScores[9] - secondScores[9];
+    }
+
+
+difference = one+two+three+four+five+six+seven+eight+nine+ten;
+
+var percentage = (40-difference);
+
+// console.log("first: " + firstScores + " second: " + secondScores + " Total differences: " + difference + "/40");
+// res.json(firstUserName+ " and " +secondUserName+" have a total difference of " + difference + " points. Compatibility: " + percentage + " out of 40.");
+
+// var displayDiv = document.getElementById("#displayCompat");
+
+// displayDiv.html(firstUserName+ " and " +secondUserName+" have a total difference of " + difference + " points. Compatibility: " + percentage + " out of 40.");
+
+
+res.send("<html><head><link href='https://fonts.googleapis.com/css?family=Poiret+One|Tangerine' rel='stylesheet'>"+
+"</head><style> * {background: url('/purple.png') center fixed no-repeat; margin: 15px; color: purple; font-weight: bold; font-family: 'poiret one', cursive;}; .servC {padding:10px; margin:10px;};"+ 
+"#serverbtn {color: rgb(59, 11, 45); font-size: 45px; font-family: 'Tangerine', cursive;} #serverbtn:hover {color: rgb(203, 147, 229); text-shadow: 2px 2px rgb(126, 36, 99); font-size: 50px;}</style><center><div id='servResults' class='servC'>"+
+firstUserName + " and " + secondUserName + " have a total difference of " + difference +
+" points. <br> Compatibility: " + percentage + " out of 40.</div><br><img id='fpic' class='servC' src='"+
+firstUserPic+"' height='300px'><img src='/purpleheart.png' class='servC' height='50px'><img id='spic' class='servC' src='"+
+secondUserPic+"' height='300px'><br><a href='/allFriends.html' id='serverbtn'>Back</a></center></html>");
+
+})
+})
+
+
+
+app.listen(3040, function () {
+    console.log("Ready on port 3040");
 })
 
