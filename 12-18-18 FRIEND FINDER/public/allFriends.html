@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Tangerine" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Friend Finder - Available Matches</title>
 </head>
 
 <style>
@@ -27,30 +27,46 @@
         padding-top: -30px;
     }
 
+    #homeBtn,
+    #compatBtn,
+    #calc,
+    #survBtn {
+        color: rgb(59, 11, 45);
+        font-weight: bold;
+        font-size: 40px;
+        font-family: 'Tangerine', cursive;
+    }
+    #homeBtn:hover,
+    #compatBtn:hover,
+    #calc:hover,
+    #survBtn:hover {
+        color: rgb(203, 147, 229);
+        text-shadow: 2px 2px rgb(126, 36, 99);
+        font-size: 45px;
+    }
 
+    #calc {
+        color: rgb(59, 11, 45);
+        font-weight: bold;
+        font-size: 30px;
+        font-family: 'Tangerine', cursive;
+    }
 
-#homeBtn {
-    color: rgb(59, 11, 45);
-    font-weight: bold;
-    font-size: 40px;
-    font-family: 'Tangerine', cursive;
-}
-
-#homeBtn:hover {
-    color: rgb(203, 147, 229);
-    text-shadow: 2px 2px rgb(126, 36, 99);
-    font-size: 50px;
-}
+    #calc:hover {
+        color: rgb(203, 147, 229);
+        text-shadow: 2px 2px rgb(126, 36, 99);
+        font-size: 35px;
+    }
 
     #content {
- width: 80%;
- margin-left: 15%;
+        width: 80%;
+        margin-left: 15%;
     }
 
     .entireFriend {
         border: white ridge 3px;
         width: 250px;
-        height: 250px;
+        height: 280px;
         text-align: center;
         float: left;
     }
@@ -67,10 +83,19 @@
         padding: 2px;
         margin: 10px;
     }
+
+    .idNum {
+        font-size: 15px;
+    }
 </style>
 
 <body>
-    <header><a href="/home.html" id="homeBtn">Home</a></header>
+    <header>
+
+        <a href="/home.html" id="homeBtn">Home |</a>
+        <!-- <a href="compatibility.html" id="compatBtn">| Compatibility Calculator |</a> -->
+        <a href="survey.html" id="survBtn">| Create Profile</a>
+    </header>
 
     <center>
         <h4>Who's On</h4>
@@ -78,7 +103,20 @@
         <img src="purpleheart.png" width="200px" id="heart">
     </center>
 
-    
+    <center>
+        <div id="displayCompat"></div>
+        <br>
+        <form class="chooseFriend" action="/match" method="GET">
+            <label for="pickOne">Friend One (by ID)</label><br>
+            <input type="number" id="pickOne" name="first" min='1'><br>
+            <br><br>
+            <label for="pickTwo">Friend Two (by ID)</label><br>
+            <input type="number" id="pickTwo" name="second" min='1'><br>
+            <br><br>
+            <input type="submit" id="calc" name="submit" value="Calculate Compatibility">
+        </form>
+
+    </center>
 
     <center>
 
@@ -94,6 +132,7 @@
 
 <script>
 
+
     $.ajax({
         url: "/list",
         method: "GET"
@@ -106,7 +145,6 @@
 
         for (var i = 0; i < data.length; i++) {
 
-
             var $d = $("<div>");
             var img = $("<img>");
             var $diiv = $("<div>");
@@ -115,14 +153,17 @@
             img.attr("src", data[i].photo);
 
             $d.attr("class", "friend");
-            $d.text(data[i].name);
+            $d.html("<div class='idNum'>ID #" + data[i].id + "</div>" + data[i].name);
 
             $diiv.attr("class", "entireFriend");
             $diiv.append(img);
             $diiv.append($d);
 
-
             $("#content").append($diiv);
+
+            $("#pickOne").attr('max', data[i].id);
+            $("#pickTwo").attr('max', data[i].id);
+
         }
 
     })
