@@ -53,6 +53,20 @@
         font-size: 50px;
     }
 
+    
+#matchBtn {
+    color: rgb(59, 11, 45);
+    font-weight: bold;
+    font-size: 40px;
+    font-family: 'Tangerine', cursive;
+}
+
+#matchBtn:hover {
+    color: rgb(203, 147, 229);
+    text-shadow: 2px 2px rgb(126, 36, 99);
+    font-size: 50px;
+}
+
     #choice {
         margin: 10px;
     }
@@ -70,7 +84,8 @@
         <br><br><br><br>
         <div id="choice">
             <a href="survey.html" id="surveyLink">Create Your Profile</a><br>
-            <a href="allFriends.html" id='friendsList'>View Available Matches</a>
+            <a href="allFriends.html" action="/Available" method="GET" id='friendsList'>View Available Matches</a><br>
+            <!-- <a href="compatibility.html" id="matchBtn">Check Compatibility</a> -->
         </div>
     </center>
 </body>
