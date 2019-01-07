@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Baloo+Thambi|Barrio" rel="stylesheet">
+	<title>Document</title>
+</head>
+
+<style>
+
+
+	.eatForm {
+	text-align: left;
+	font-family: 'Barrio', cursive;
+	color: rgb(100, 119, 17);
+	font-size: 30px;
+	border: 2px ridge rgb(250, 250, 122);
+}
+
+.eatBtn {
+	background: red;
+	color: white;
+	border: 2px inset white;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	font-family: 'Baloo Thambi', cursive;
+}
+
+.eatBtn:hover {
+	border: outset;
+	color: rgb(247, 247, 183);
+	background: rgb(132, 155, 33);	
+	cursor: -webkit-grab;
+}
+
+
+
+.buildBtn {
+	background: red;
+	text-align: right;
+	color: white;
+	border-radius: 2%;
+	height: 40px;
+	font-family: 'Baloo Thambi', cursive;
+	border: 2px red inset;
+}
+
+.buildBtn:hover {
+	color: rgb(90, 105, 20);
+	background: rgb(227, 245, 149);;
+	cursor: cell;
+	border: 2px red outset;
+	
+}
+
+.newForm {
+	text-align: right;
+	background: rgb(201, 5, 5);
+	color: white;
+	text-shadow: 2px 2px rgb(201, 79, 79);
+	height: 40px;
+	font-family: 'Baloo Thambi', cursive;
+	padding-top: 5px;
+	padding-right: 20px;
+}
+
+#addOwnBurger {
+	font-family: 'Baloo Thambi', cursive;
+	font-size: 30px;
+	color: rgb(201, 5, 5);
+}
+
+#inputField {
+	height: 36px;
+	border: 3px ridge red;
+	font-family: 'Baloo Thambi', cursive;
+	font-size: 20px;
+}
+
+#inputField:hover {
+	cursor: text;
+}
+
+</style>
+
+
+<body>
+
+{{!-- in this div we use #each to create a <p> tag for each burger, and if/else to determine if it has been devoured or not --}}
+	<div> 
+		{{#each data }}
+
+		{{!-- the forms below allow us to create hidden input fields, whose values are equal to the burger's ID# --}}
+		{{!-- The submit button in each form will send the input's value (burger ID) to either the /cook or /eat route --}}
+
+		{{#if this.devoured}}
+		{{!-- if devoured, burger will appear on the right with a button to /cook route (aka set burger to devoured:false) --}}
+		<p class='devouredBurgers'>
+			<form action='/cook' method='GET' class='newForm'>{{this.burger_name}} burger has been devoured!<br>
+				<input type='hidden' name='idbn' value={{this.id}}><button type='submit' class='buildBtn'>Make Another</button>
+			</form>
+		</p>
+		{{else}}
+
+		{{!-- if not devoured, burger appears on the left with a button to /eat route (btn sets burger to devoured:true) --}}
+		<p class='availableBurgers'>
+			<form action='/eat' method="GET" class='eatForm'>{{this.burger_name}} <input type='hidden' name='idb' value={{this.id}}>
+				<button type='submit' class='eatBtn'>Eat Me</button></form>
+		</p>
+		{{/if}}
+		{{/each}}
+	</div>
+
+{{!-- Below the list of burgers will be this form which allows a user to create their own burger, by submitting the value to /custom --}}
+	<form id='addOwnBurger' action='/custom' method="GET">Create Your Own!
+		<input type='text' name='customBurger' value='burger name' id='inputField'>
+		<button type='submit' id='createBtn' class='buildBtn'>Add To Menu</button>
+
+	</form>
+
+
+</body>
+
+</html>
