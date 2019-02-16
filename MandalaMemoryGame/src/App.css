@@ -1,0 +1,78 @@
+* {
+  background: url('https://i.imgur.com/LwphXQj.jpg') center fixed no-repeat;
+  background-size: cover;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+.mainTitle {
+  color: rgb(75, 9, 95);
+  text-shadow: 2px 2px rgb(191, 175, 250);
+  font-size: 44px;
+  font-family: 'Parisienne', cursive;
+  padding-top: 30px;
+}
+
+.smallTitle {
+  color: rgb(14, 49, 116);
+  text-shadow: 1px 1px rgb(197, 175, 250);
+  font-size: 20px;
+  padding-bottom: 80px;
+}
+
+.instructions {
+  color: rgb(14, 49, 116);
+  text-shadow: 1px 1px rgb(197, 175, 250);
+  font-size: 15px;
+  padding-top: 180px;
+}
+
+.images {
+  animation: App-logo-spin infinite 20s linear;
+  width: 70%;
+  pointer-events: none;
+  background: none;
+  padding: none;
+  margin: none;
+}
+
+.wholeImg {
+  float: left;
+  width: 10%;
+  height: 15%;
+  margin: none;
+  padding: none;
+  background: none;
+}
+
+.imgBtn {
+  background: none;
+  border: none;
+  float: left;
+  padding-top: 5px;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.StartBtn {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
